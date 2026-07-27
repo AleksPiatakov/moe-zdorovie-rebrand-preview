@@ -231,14 +231,17 @@
   }
   .hero-visual{
     position:relative;
-    display:flex; align-items:center; justify-content:center;
+    aspect-ratio:1600/1098;
+    border-radius:28px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
     opacity:0; animation:pop 1s cubic-bezier(.2,.8,.2,1) 0.35s forwards;
   }
   @keyframes pop{
     from{opacity:0; transform:scale(0.9) rotate(-3deg);}
     to{opacity:1; transform:scale(1) rotate(0deg);}
   }
-  .hero-illustration{width:100%; height:auto;}
+  .hero-illustration{width:100%; height:100%; object-fit:cover; display:block;}
   @media (max-width:980px){
     .hero-visual-wrap{padding:0 20px; max-width:560px; margin:0 auto;}
   }
