@@ -79,10 +79,8 @@
     display:flex; align-items:center; justify-content:space-between;
   }
   .logo{
-    display:flex; align-items:center; gap:10px;
-    font-family:'Fraunces',serif; font-size:1.5rem; font-weight:600;
+    display:flex; align-items:center;
   }
-  .logo svg{width:34px;height:34px;}
   .nav-links{
     display:flex; gap:36px; font-size:0.92rem; font-weight:600;
   }
@@ -445,10 +443,9 @@
 
 <header>
   <div class="nav-wrap">
-    <div class="logo">
-      <svg viewBox="0 0 40 40" fill="none"><path d="M20 4C20 4 8 12 8 22C8 29.7 13.4 36 20 36C26.6 36 32 29.7 32 22C32 12 20 4 20 4Z" fill="#233821"/><path d="M20 12C20 12 20 20 20 32" stroke="#f6f0e4" stroke-width="1.6" stroke-linecap="round"/></svg>
-      Моє Здоров'я
-    </div>
+    <a class="logo" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+      <img src="https://moe-zdorovie.com.ua/images/350x350/logo_3.png" alt="Моє Здоров'я" height="38">
+    </a>
     <nav class="nav-links">
       <a href="#pillars">Бренди</a>
       <a href="#showcase">Каталог</a>
