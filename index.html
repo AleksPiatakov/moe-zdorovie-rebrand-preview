@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Моє Здоров'я — дизайн-прев'ю</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f18;
+    --cream:#f6f0e4;
+    --cream-deep:#efe6d3;
+    --forest:#233821;
+    --forest-deep:#152016;
+    --sage:#9caf88;
+    --sage-soft:#c7d3b4;
+    --terracotta:#c1663d;
+    --terracotta-deep:#a04f2c;
+    --gold:#c9a24a;
+    --paper:#fffdf8;
+    --line:rgba(36,31,24,0.14);
+    --shadow: 0 30px 60px -30px rgba(21,32,22,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .eyebrow{
+    font-family:'Manrope',sans-serif;
+    font-weight:700;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--terracotta-deep);
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  /* preview ribbon */
+  .preview-bar{
+    background:var(--ink); color:var(--cream);
+    font-size:0.78rem; text-align:center; padding:9px 16px;
+    position:relative; z-index:200;
+  }
+  .preview-bar a{border-bottom:1px solid rgba(246,240,228,0.5); font-weight:700;}
+  .preview-bar a:hover{border-color:var(--cream);}
+
+  /* grain overlay */
+  .grain{
+    position:fixed; inset:0; pointer-events:none; z-index:999;
+    opacity:0.045; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(246,240,228,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-wrap{
+    max-width:1280px; margin:0 auto; padding:18px 40px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces',serif; font-size:1.5rem; font-weight:600;
+  }
+  .logo svg{width:34px;height:34px;}
+  .nav-links{
+    display:flex; gap:36px; font-size:0.92rem; font-weight:600;
+  }
+  .nav-links a{position:relative; padding:4px 0;}
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px;
+    background:var(--terracotta); transition:width 0.3s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--forest); color:var(--cream);
+    padding:11px 24px; border-radius:100px; font-size:0.86rem; font-weight:700;
+    transition:transform 0.25s ease, background 0.25s ease;
+  }
+  .nav-cta:hover{background:var(--terracotta); transform:translateY(-2px);}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    max-width:1280px; margin:0 auto;
+    padding:90px 40px 60px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px;
+    align-items:center;
+  }
+  .hero-copy .eyebrow{
+    opacity:0; animation:rise 0.8s ease 0.1s forwards;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 5vw, 4.4rem);
+    line-height:1.02;
+    margin-top:18px;
+    opacity:0; animation:rise 0.9s ease 0.25s forwards;
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--terracotta-deep);
+    font-weight:400;
+  }
+  .hero p.lead{
+    font-size:1.12rem; line-height:1.6; max-width:480px; margin-top:22px;
+    color:rgba(36,31,24,0.78);
+    opacity:0; animation:rise 0.9s ease 0.4s forwards;
+  }
+  .hero-actions{
+    display:flex; gap:16px; margin-top:34px; align-items:center;
+    opacity:0; animation:rise 0.9s ease 0.55s forwards;
+  }
+  .btn-primary{
+    background:var(--terracotta); color:var(--paper);
+    padding:16px 30px; border-radius:100px; font-weight:700; font-size:0.95rem;
+    box-shadow:0 14px 30px -10px rgba(193,102,61,0.55);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{transform:translateY(-3px); box-shadow:0 18px 34px -8px rgba(193,102,61,0.6);}
+  .btn-ghost{
+    font-weight:700; font-size:0.95rem;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:3px;
+  }
+  @keyframes rise{
+    from{opacity:0; transform:translateY(18px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  .hero-visual{
+    position:relative;
+    aspect-ratio:1/1.05;
+    border-radius:40% 60% 55% 45% / 50% 45% 55% 50%;
+    background:
+      radial-gradient(circle at 30% 25%, rgba(255,255,255,0.5), transparent 45%),
+      linear-gradient(155deg, var(--sage) 0%, var(--forest) 78%);
+    box-shadow:var(--shadow);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; animation:pop 1s cubic-bezier(.2,.8,.2,1) 0.35s forwards;
+    overflow:hidden;
+  }
+  @keyframes pop{
+    from{opacity:0; transform:scale(0.85) rotate(-4deg);}
+    to{opacity:1; transform:scale(1) rotate(0deg);}
+  }
+  .hero-visual .leaf-deco{
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 70% 70%, rgba(255,255,255,0.08), transparent 40%);
+  }
+  .hero-visual svg{width:62%; opacity:0.95;}
+  .badge-float{
+    position:absolute; top:8%; left:-8%;
+    background:var(--paper); border-radius:20px; padding:16px 20px;
+    box-shadow:var(--shadow); text-align:left; width:190px;
+    animation:float 5s ease-in-out infinite;
+  }
+  .badge-float2{
+    position:absolute; bottom:6%; right:-6%;
+    background:var(--ink); color:var(--cream); border-radius:20px; padding:14px 20px;
+    box-shadow:var(--shadow); width:170px;
+    animation:float 6s ease-in-out infinite 0.6s;
+  }
+  @keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-14px);}
+  }
+  .badge-float .num, .badge-float2 .num{
+    font-family:'Fraunces',serif; font-size:1.7rem; font-weight:600;
+  }
+  .badge-float .lbl, .badge-float2 .lbl{font-size:0.78rem; opacity:0.65; margin-top:2px;}
+
+  /* ===== marquee ===== */
+  .marquee-wrap{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    background:var(--forest); color:var(--cream);
+    overflow:hidden; padding:16px 0;
+  }
+  .marquee{
+    display:flex; gap:60px; white-space:nowrap;
+    animation:scroll 28s linear infinite;
+    font-family:'Fraunces',serif; font-size:1.15rem; font-style:italic;
+  }
+  .marquee span{opacity:0.85;}
+  .marquee span.dot{color:var(--terracotta); font-style:normal;}
+  @keyframes scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  /* ===== SECTIONS ===== */
+  section{max-width:1280px; margin:0 auto; padding:110px 40px;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:40px;
+    margin-bottom:56px;
+  }
+  .section-head h2{font-size:clamp(2rem,3.4vw,3rem); max-width:620px;}
+  .section-head p{max-width:340px; color:rgba(36,31,24,0.65); font-size:0.98rem; line-height:1.55;}
+
+  /* Brand pillars - offset grid */
+  .pillars{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  }
+  .pillar{
+    background:var(--paper); border-radius:24px; padding:36px 30px;
+    border:1px solid var(--line);
+    transition:transform 0.35s ease, box-shadow 0.35s ease;
+    position:relative;
+  }
+  .pillar:nth-child(2){transform:translateY(30px);}
+  .pillar:nth-child(5){transform:translateY(30px);}
+  .pillar:hover{transform:translateY(-8px); box-shadow:var(--shadow);}
+  .pillar:nth-child(2):hover, .pillar:nth-child(5):hover{transform:translateY(22px);}
+  .pillar-tag{
+    display:inline-block; font-size:0.68rem; font-weight:800; letter-spacing:0.14em;
+    text-transform:uppercase; padding:5px 12px; border-radius:100px;
+    background:var(--cream-deep); color:var(--forest-deep); margin-bottom:20px;
+  }
+  .pillar h3{font-size:1.5rem; margin-bottom:12px;}
+  .pillar p{font-size:0.92rem; line-height:1.6; color:rgba(36,31,24,0.68); margin:0;}
+
+  /* Product showcase - diagonal */
+  .showcase{
+    background:var(--forest); color:var(--cream);
+    border-radius:36px; padding:90px 60px; margin:0 40px;
+    max-width:1280px; margin-left:auto; margin-right:auto;
+    position:relative; overflow:hidden;
+  }
+  .showcase::before{
+    content:''; position:absolute; top:-30%; right:-10%; width:60%; height:160%;
+    background:radial-gradient(circle, rgba(156,175,136,0.25), transparent 65%);
+  }
+  .showcase .section-head h2, .showcase .section-head p{color:var(--cream);}
+  .showcase .section-head p{opacity:0.7;}
+  .product-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:22px; position:relative;
+  }
+  .product-card{
+    background:rgba(255,253,248,0.06);
+    border:1px solid rgba(255,253,248,0.14);
+    border-radius:20px; padding:22px; text-align:left;
+    transition:background 0.3s ease, transform 0.3s ease;
+    display:block;
+  }
+  .product-card:hover{background:rgba(255,253,248,0.12); transform:translateY(-6px);}
+  .product-swatch{
+    height:120px; border-radius:14px; margin-bottom:18px;
+    background:linear-gradient(140deg, var(--sage-soft), var(--sage));
+    display:flex; align-items:center; justify-content:center;
+  }
+  .product-swatch.c2{background:linear-gradient(140deg,#e8c9a0,var(--terracotta));}
+  .product-swatch.c3{background:linear-gradient(140deg,#e3d9b8,var(--gold));}
+  .product-swatch.c4{background:linear-gradient(140deg,#cfd9c4,var(--forest-deep));}
+  .product-card h4{font-family:'Fraunces',serif; font-weight:500; font-size:1.05rem; margin-bottom:6px; line-height:1.3;}
+  .product-card .price{font-size:0.85rem; opacity:0.65;}
+  .showcase-more{text-align:center; margin-top:40px; position:relative;}
+  .showcase-more a{
+    font-weight:700; font-size:0.92rem; border-bottom:2px solid var(--cream); padding-bottom:3px;
+  }
+
+  /* palette + type strip */
+  .system{
+    display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;
+  }
+  .palette-row{display:flex; gap:14px; margin-top:28px;}
+  .swatch{
+    flex:1; height:96px; border-radius:16px; position:relative; overflow:hidden;
+    display:flex; align-items:flex-end; padding:10px;
+    font-size:0.72rem; font-weight:700; letter-spacing:0.04em;
+  }
+  .swatch span{background:rgba(255,255,255,0.85); padding:2px 7px; border-radius:6px; color:var(--ink);}
+  .type-sample{margin-top:10px;}
+  .type-sample .big{font-family:'Fraunces',serif; font-size:3.4rem; font-weight:500; line-height:1;}
+  .type-sample .med{font-family:'Manrope',sans-serif; font-weight:700; font-size:1rem; margin-top:14px; letter-spacing:0.02em;}
+  .type-sample .small{font-family:'Manrope',sans-serif; font-size:0.9rem; color:rgba(36,31,24,0.65); margin-top:8px; max-width:420px; line-height:1.6;}
+
+  /* testimonial / trust */
+  .trust{
+    display:grid; grid-template-columns:1.2fr 1fr; gap:60px; align-items:center;
+  }
+  .quote{
+    font-family:'Fraunces',serif; font-style:italic; font-size:clamp(1.4rem,2.4vw,2rem);
+    line-height:1.4; color:var(--forest-deep);
+  }
+  .quote-attr{margin-top:24px; font-family:'Manrope',sans-serif; font-weight:700; font-size:0.9rem;}
+  .stat-cards{display:flex; flex-direction:column; gap:18px;}
+  .stat-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:24px 28px;
+    display:flex; align-items:center; gap:20px;
+  }
+  .stat-card .n{font-family:'Fraunces',serif; font-size:2.2rem; color:var(--terracotta-deep);}
+  .stat-card .l{font-size:0.85rem; color:rgba(36,31,24,0.65); max-width:200px;}
+
+  footer{
+    background:var(--ink); color:var(--cream);
+    padding:70px 40px 30px;
+  }
+  .footer-inner{max-width:1280px; margin:0 auto;}
+  .footer-top{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    padding-bottom:50px; border-bottom:1px solid rgba(246,240,228,0.14);
+  }
+  .footer-top h2{font-size:clamp(2rem,4vw,3.2rem); max-width:560px;}
+  footer .btn-primary{background:var(--cream); color:var(--ink);}
+  .footer-cols{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:30px; padding:44px 0; font-size:0.9rem;
+  }
+  .footer-cols h5{font-family:'Manrope',sans-serif; font-weight:800; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; opacity:0.5; margin-bottom:16px;}
+  .footer-cols a{display:block; margin-bottom:10px; opacity:0.82;}
+  .footer-cols a:hover{opacity:1;}
+  .footer-bottom{
+    display:flex; justify-content:space-between; font-size:0.8rem; opacity:0.5; padding-top:24px;
+  }
+
+  @media (max-width: 980px){
+    .nav-links{display:none;}
+    .hero{grid-template-columns:1fr; padding-top:60px;}
+    .pillars{grid-template-columns:1fr; }
+    .pillar:nth-child(2), .pillar:nth-child(5){transform:none;}
+    .product-grid{grid-template-columns:repeat(2,1fr);}
+    .system, .trust{grid-template-columns:1fr;}
+    .footer-cols{grid-template-columns:repeat(2,1fr);}
+    section{padding:70px 24px;}
+    .showcase{margin:0 20px; padding:60px 28px;}
+  }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="preview-bar">
+  Дизайн-прев'ю нового вигляду сайту · товари й ціни реальні, оформлення замовлення — на <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">поточному сайті moe-zdorovie.com.ua</a>
+</div>
+
+<header>
+  <div class="nav-wrap">
+    <div class="logo">
+      <svg viewBox="0 0 40 40" fill="none"><path d="M20 4C20 4 8 12 8 22C8 29.7 13.4 36 20 36C26.6 36 32 29.7 32 22C32 12 20 4 20 4Z" fill="#233821"/><path d="M20 12C20 12 20 20 20 32" stroke="#f6f0e4" stroke-width="1.6" stroke-linecap="round"/></svg>
+      Моє Здоров'я
+    </div>
+    <nav class="nav-links">
+      <a href="#pillars">Бренди</a>
+      <a href="#showcase">Каталог</a>
+      <a href="#system">Стиль</a>
+      <a href="#trust">Довіра</a>
+    </nav>
+    <a class="nav-cta" href="https://moe-zdorovie.com.ua/login.php" target="_blank" rel="noopener">Кабінет</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">Натуральна аптека дому</div>
+    <h1>Здоров'я, яке <em>розквітає</em><br>щодня</h1>
+    <p class="lead">Натуральна косметика, фітокомплекси, вітаміни та екозасоби для дому — зібрані в одну послідовну систему турботи. Без хімії. Без порожніх обіцянок.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#pillars">Дивитись бренди</a>
+      <a class="btn-ghost" href="#showcase">Каталог товарів →</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="leaf-deco"></div>
+    <svg viewBox="0 0 200 220" fill="none">
+      <path d="M100 10C60 40 30 90 30 130C30 168 62 198 100 198C138 198 170 168 170 130C170 90 140 40 100 10Z" stroke="#f6f0e4" stroke-width="1.4" opacity="0.55"/>
+      <path d="M100 40C100 40 100 100 100 190" stroke="#f6f0e4" stroke-width="1.4" opacity="0.55"/>
+      <path d="M100 70C100 70 70 85 60 105" stroke="#f6f0e4" stroke-width="1.2" opacity="0.5"/>
+      <path d="M100 100C100 100 130 112 142 132" stroke="#f6f0e4" stroke-width="1.2" opacity="0.5"/>
+      <path d="M100 140C100 140 72 152 62 172" stroke="#f6f0e4" stroke-width="1.2" opacity="0.5"/>
+      <circle cx="100" cy="104" r="46" stroke="#f6f0e4" stroke-width="1" opacity="0.35"/>
+    </svg>
+    <div class="badge-float">
+      <div class="num">6</div>
+      <div class="lbl">українських брендів під одним дахом</div>
+    </div>
+    <div class="badge-float2">
+      <div class="num">185+</div>
+      <div class="lbl">перевірених засобів у каталозі</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee" id="marq"></div>
+</div>
+
+<section id="pillars">
+  <div class="section-head">
+    <h2>Шість брендів. Одна філософія — усвідомлений вибір.</h2>
+    <p>Кожен бренд відповідає за свою частину турботи: від щитоподібної залози до підлоги на кухні.</p>
+  </div>
+  <div class="pillars">
+    <div class="pillar">
+      <span class="pillar-tag">Здоров'я</span>
+      <h3>Choice Phyto</h3>
+      <p>Фітокомплекси на рослинних екстрактах для імунітету, серця, щитоподібної залози й травлення. Системний підхід замість разових рішень.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-tag">Нутрієнти</span>
+      <h3>PRO‑HEALTHY</h3>
+      <p>Колаген, омега‑3, пребіотики та комплекси контролю ваги — формули для щоденного вживання без зайвих ритуалів.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-tag">Краса</span>
+      <h3>White Mandarin</h3>
+      <p>Косметика для обличчя, тіла й волосся без парабенів і агресивних ПАР. Морські водорості й рослинні екстракти — навіть для чутливої шкіри.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-tag">Порожнина рота</span>
+      <h3>BIOX</h3>
+      <p>Зубні пасти для захисту ясен, профілактики карієсу та відновлення емалі — включно з безпечними формулами для дітей.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-tag">Для дому</span>
+      <h3>GreenMax</h3>
+      <p>Екозасоби для миття посуду, прання й прибирання. Розкладаються природним шляхом, безпечні для дітей і тварин.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-tag">Суперфуди</span>
+      <h3>Добра Їжа</h3>
+      <p>Пророщені зерна та функціональне харчування для щоденної підтримки організму зсередини.</p>
+    </div>
+  </div>
+</section>
+
+<section id="showcase">
+  <div class="showcase">
+    <div class="section-head">
+      <h2>Новинки тижня</h2>
+      <p>Реальні товари й ціни з поточного каталогу — натисніть, щоб перейти на сторінку товару.</p>
+    </div>
+    <div class="product-grid">
+      <a class="product-card" href="https://moe-zdorovie.com.ua/ekokoncentrat-kisnevmisnii-dla-vidbiluvanna/p-64671.html" target="_blank" rel="noopener">
+        <div class="product-swatch c1"></div>
+        <h4>ЕКОконцентрат кисневмісний для відбілювання</h4>
+        <div class="price">297 грн</div>
+      </a>
+      <a class="product-card" href="https://moe-zdorovie.com.ua/zubna-pasta-mors-kii-kal-cii-d3/p-64667.html" target="_blank" rel="noopener">
+        <div class="product-swatch c2"></div>
+        <h4>Зубна паста «Морський кальцій & D3»</h4>
+        <div class="price">255 грн</div>
+      </a>
+      <a class="product-card" href="https://moe-zdorovie.com.ua/fitokompleks-garmoniya-shchytopodibna-zaloza/p-64659.html" target="_blank" rel="noopener">
+        <div class="product-swatch c3"></div>
+        <h4>Фітокомплекс ГАРМОНІЯ</h4>
+        <div class="price">352 грн</div>
+      </a>
+      <a class="product-card" href="https://moe-zdorovie.com.ua/programa-ritm-serca-/p-64662.html" target="_blank" rel="noopener">
+        <div class="product-swatch c4"></div>
+        <h4>Програма «Ритм серця»</h4>
+        <div class="price">3213 грн</div>
+      </a>
+      <a class="product-card" href="https://moe-zdorovie.com.ua/ekomilo-ridke-olivkovo-lanolinove-z-dozatorom/p-64669.html" target="_blank" rel="noopener">
+        <div class="product-swatch c1"></div>
+        <h4>Екомило рідке оливково‑ланолінове з дозатором</h4>
+        <div class="price">323 грн</div>
+      </a>
+      <a class="product-card" href="https://moe-zdorovie.com.ua/losion-pislya-golinnya-antistress-white-mandarin/p-64656.html" target="_blank" rel="noopener">
+        <div class="product-swatch c2"></div>
+        <h4>Лосьйон після гоління Antistress</h4>
+        <div class="price">549 грн</div>
+      </a>
+      <a class="product-card" href="https://moe-zdorovie.com.ua/proroseni-zerna-bobovih/p-64661.html" target="_blank" rel="noopener">
+        <div class="product-swatch c3"></div>
+        <h4>Пророщені зерна бобових</h4>
+        <div class="price">363 грн</div>
+      </a>
+      <a class="product-card" href="https://moe-zdorovie.com.ua/healthy-detox-box/p-64663.html" target="_blank" rel="noopener">
+        <div class="product-swatch c4"></div>
+        <h4>HEALTHY DETOX BOX</h4>
+        <div class="price">2424 грн</div>
+      </a>
+    </div>
+    <div class="showcase-more">
+      <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">Увесь каталог на moe-zdorovie.com.ua →</a>
+    </div>
+  </div>
+</section>
+
+<section id="system">
+  <div class="section-head">
+    <h2>Дизайн‑система</h2>
+    <p>Теплий, редакційний, живий — на противагу типовому холодному «медичному» стилю категорії.</p>
+  </div>
+  <div class="system">
+    <div>
+      <div class="type-sample">
+        <div class="big">Aa Здоров'я</div>
+        <div class="med">Fraunces — заголовки</div>
+        <div class="small">Витончена контрастна засічка з теплим, майже рукописним курсивом для акцентів. Створює відчуття турботи й експертизи водночас.</div>
+      </div>
+      <div class="type-sample" style="margin-top:40px;">
+        <div class="big" style="font-family:'Manrope',sans-serif; font-size:2.2rem; font-weight:800;">Aa Здоров'я</div>
+        <div class="med">Manrope — основний текст</div>
+        <div class="small">Гуманістичний гротеск для карток товарів, навігації та UI — читабельний на будь-якому екрані.</div>
+      </div>
+    </div>
+    <div>
+      <div class="med" style="font-weight:700; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; opacity:0.6;">Палітра</div>
+      <div class="palette-row">
+        <div class="swatch" style="background:var(--forest);"><span>Forest</span></div>
+        <div class="swatch" style="background:var(--terracotta);"><span>Terracotta</span></div>
+        <div class="swatch" style="background:var(--sage);"><span>Sage</span></div>
+      </div>
+      <div class="palette-row">
+        <div class="swatch" style="background:var(--gold);"><span>Gold</span></div>
+        <div class="swatch" style="background:var(--cream-deep); color:var(--ink);"><span>Cream</span></div>
+        <div class="swatch" style="background:var(--ink);"><span>Ink</span></div>
+      </div>
+      <p class="small" style="margin-top:24px; max-width:460px; color:rgba(36,31,24,0.65); line-height:1.6;">Домінантний лісовий зелений і кремовий — з терракотовим акцентом замість очікуваного бірюзово‑білого «аптечного» дуету. Золото — тільки для преміум‑ліній (програми, набори).</p>
+    </div>
+  </div>
+</section>
+
+<section id="trust">
+  <div class="trust">
+    <div>
+      <div class="quote">«Кожен товар має опис призначення, складу й способу застосування — свідомий вибір починається з прозорості.»</div>
+      <div class="quote-attr">— принцип каталогу «Моє Здоров'я»</div>
+    </div>
+    <div class="stat-cards">
+      <div class="stat-card"><div class="n">6</div><div class="l">брендів під одним дахом</div></div>
+      <div class="stat-card"><div class="n">185+</div><div class="l">товарів у каталозі</div></div>
+      <div class="stat-card"><div class="n">24/7</div><div class="l">доставка по всій Україні</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <h2>Готові перейти<br>на новий вигляд?</h2>
+      <a class="btn-primary" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">До поточного сайту</a>
+    </div>
+    <div class="footer-cols">
+      <div>
+        <h5>Каталог</h5>
+        <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">Здоров'я</a>
+        <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">Краса</a>
+        <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">Для дому</a>
+        <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">Суперфуди</a>
+      </div>
+      <div>
+        <h5>Бренди</h5>
+        <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">Choice Phyto</a>
+        <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">White Mandarin</a>
+        <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">BIOX</a>
+        <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">GreenMax</a>
+      </div>
+      <div>
+        <h5>Інформація</h5>
+        <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">Доставка і оплата</a>
+        <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">Повернення товару</a>
+        <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">Договір оферти</a>
+      </div>
+      <div>
+        <h5>Контакти</h5>
+        <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">Київ, вул. Олексія Тихого 42А</a>
+        <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">+38 (093) 503‑64‑31</a>
+        <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">info@moe-zdorovie.com.ua</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Моє Здоров'я.</span>
+      <span>Дизайн‑прев'ю · Aesthetic: Botanical Apothecary</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const words = ["Натуральна косметика","Фітокомплекси","Вітаміни","Екозасоби для дому","Суперфуди","Здорові рішення"];
+  const marq = document.getElementById('marq');
+  let html = '';
+  for(let i=0;i<2;i++){
+    words.forEach(w=>{ html += `<span>${w}</span><span class="dot">•</span>`; });
+  }
+  marq.innerHTML = html;
+</script>
+
+</body>
+</html>
