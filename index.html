@@ -124,6 +124,26 @@
     font-family:'Manrope',sans-serif;
   }
 
+  .lang-switch{position:relative;}
+  .lang-current{
+    display:flex; align-items:center; gap:5px; border:1px solid var(--line); background:var(--paper);
+    border-radius:100px; padding:9px 14px; font-family:'Manrope',sans-serif; font-weight:700;
+    font-size:0.82rem; color:var(--ink); cursor:pointer;
+  }
+  .lang-current:hover{border-color:var(--terracotta);}
+  .lang-current svg{width:13px; height:13px;}
+  .lang-menu{
+    position:absolute; top:calc(100% + 8px); right:0; background:var(--paper);
+    border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; display:flex; flex-direction:column; min-width:150px; z-index:150;
+  }
+  .lang-opt{
+    display:block; padding:8px 12px; border-radius:9px; font-family:'Manrope',sans-serif;
+    font-size:0.85rem; color:var(--ink); font-weight:600;
+  }
+  .lang-opt.active{color:var(--terracotta-deep); font-weight:800;}
+  a.lang-opt:hover{background:var(--cream-deep);}
+
   /* ===== cart drawer ===== */
   .cart-drawer{position:fixed; inset:0; z-index:300;}
   .cart-drawer-backdrop{position:absolute; inset:0; background:rgba(21,32,22,0.45);}
@@ -557,6 +577,14 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.8h7.6a2 2 0 0 0 2-1.6L21 8H6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="21" r="1.4"/><circle cx="18" cy="21" r="1.4"/></svg>
         <span class="cart-count" id="cart-count" hidden>0</span>
       </button>
+      <div class="lang-switch">
+        <button type="button" class="lang-current" id="lang-current" aria-haspopup="true" aria-expanded="false">UA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="lang-menu" id="lang-menu" hidden>
+          <span class="lang-opt active">UA — ця сторінка</span>
+          <a class="lang-opt" href="https://moe-zdorovie.com.ua/ru/" target="_blank" rel="noopener">RU — на сайті</a>
+          <a class="lang-opt" href="https://moe-zdorovie.com.ua/en/" target="_blank" rel="noopener">EN — на сайті</a>
+        </div>
+      </div>
       <a class="nav-cta" href="https://moe-zdorovie.com.ua/login.php" target="_blank" rel="noopener">Кабінет</a>
     </div>
   </div>
@@ -1126,6 +1154,22 @@
   cartBackdrop.addEventListener('click', closeCart);
 
   renderCart();
+
+  // ===== Вибір мови (веде на реальні мовні версії сайту — тут лише UA) =====
+  const langCurrent = document.getElementById('lang-current');
+  const langMenu = document.getElementById('lang-menu');
+  langCurrent.addEventListener('click', function(e){
+    e.stopPropagation();
+    const isOpen = !langMenu.hidden;
+    langMenu.hidden = isOpen;
+    langCurrent.setAttribute('aria-expanded', String(!isOpen));
+  });
+  document.addEventListener('click', function(e){
+    if(!langMenu.hidden && !langMenu.contains(e.target) && e.target !== langCurrent){
+      langMenu.hidden = true;
+      langCurrent.setAttribute('aria-expanded', 'false');
+    }
+  });
 </script>
 
 </body>
