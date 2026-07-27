@@ -327,6 +327,30 @@
   .picker-card p{font-size:0.95rem; opacity:0.78; margin-top:14px; line-height:1.6; max-width:320px; position:relative;}
   .picker-card .btn-primary{margin-top:26px; position:relative; align-self:flex-start;}
 
+  .quiz-options{display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; position:relative;}
+  .quiz-opt{
+    background:rgba(255,253,248,0.1); border:1px solid rgba(255,253,248,0.28); color:var(--cream);
+    padding:10px 18px; border-radius:100px; font-family:'Manrope',sans-serif; font-weight:600;
+    font-size:0.86rem; cursor:pointer; transition:background 0.2s ease, transform 0.2s ease;
+  }
+  .quiz-opt:hover{background:var(--terracotta); border-color:var(--terracotta); transform:translateY(-2px);}
+  .quiz-result{position:relative; margin-top:26px;}
+  .quiz-result-label{font-size:0.85rem; opacity:0.75;}
+  .quiz-product{
+    background:rgba(255,253,248,0.08); border:1px solid rgba(255,253,248,0.18);
+    border-radius:16px; padding:18px 20px; margin-top:12px;
+  }
+  .quiz-product h4{font-family:'Fraunces',serif; font-weight:500; font-size:1.2rem;}
+  .quiz-product .price{font-size:0.88rem; opacity:0.7; margin-top:4px;}
+  .quiz-actions{display:flex; align-items:center; gap:18px; margin-top:20px; flex-wrap:wrap;}
+  .quiz-actions .btn-primary{margin-top:0;}
+  .quiz-again{
+    background:none; border:none; color:var(--cream); opacity:0.7; cursor:pointer;
+    font-family:'Manrope',sans-serif; font-size:0.85rem; font-weight:700;
+    border-bottom:1px solid rgba(246,240,228,0.5); padding:0 0 2px;
+  }
+  .quiz-again:hover{opacity:1;}
+
   .product-grid.light{grid-template-columns:repeat(2,1fr);}
   .product-card.light{
     background:var(--paper); border:1px solid var(--line); color:var(--ink);
@@ -568,48 +592,68 @@
     <p>Шукайте не за брендом, а за тим, що саме хочете покращити.</p>
   </div>
   <div class="goals-grid">
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-imunitet/c-425-440.html" target="_blank" rel="noopener">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/></svg></div>
       <span>Імунітет</span>
     </a>
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-energiia/c-425-437.html" target="_blank" rel="noopener">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></div>
       <span>Енергія</span>
     </a>
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-antystres-i-son/c-425-434.html" target="_blank" rel="noopener">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg></div>
-      <span>Сон</span>
+      <span>Антистрес і сон</span>
     </a>
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-sertse-i-sudyny/c-425-446.html" target="_blank" rel="noopener">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M12 20s-7-4.4-9.3-9C1.4 7.8 3 4.5 6.4 4a4.7 4.7 0 0 1 5.6 2.8A4.7 4.7 0 0 1 17.6 4c3.4.5 5 3.8 3.7 7-2.3 4.6-9.3 9-9.3 9Z"/></svg></div>
-      <span>Здоров'я серця</span>
+      <span>Серце і судини</span>
     </a>
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-suhloby-i-kistky/c-425-444.html" target="_blank" rel="noopener">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><circle cx="7" cy="7" r="3"/><circle cx="17" cy="17" r="3"/><path d="M9.2 9.2l5.6 5.6"/></svg></div>
-      <span>Суглоби</span>
+      <span>Суглоби і кістки</span>
     </a>
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-detoks/c-425-435.html" target="_blank" rel="noopener">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></div>
       <span>Детокс</span>
     </a>
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-kontrol-ta-znyzhennia-vahy/c-425-441.html" target="_blank" rel="noopener">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M4 19h16M6 19V9a3 3 0 0 1 6 0M18 19V9a3 3 0 0 0-6 0"/></svg></div>
-      <span>Схуднення</span>
+      <span>Контроль та зниження ваги</span>
     </a>
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-pamiat-i-uvaha/c-425-443.html" target="_blank" rel="noopener">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M12 3a5 5 0 0 0-5 5c0 2 1 3 1 5a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3c0-2 1-3 1-5a5 5 0 0 0-5-5Z"/><path d="M10 19h4M11 22h2"/></svg></div>
-      <span>Пам'ять та концентрація</span>
+      <span>Пам'ять і увага</span>
     </a>
   </div>
 </section>
 
 <section id="picker">
   <div class="split-row">
-    <div class="picker-card">
+    <div class="picker-card" id="quiz">
       <div class="eyebrow">Персональний підбір</div>
-      <h3>Не знаєте, з чого почати?</h3>
-      <p>Напишіть у консультацію на сайті — підкажемо засоби під ваш запит: сон, енергія, суглоби чи щитоподібна залоза.</p>
-      <a class="btn-primary" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">Отримати консультацію</a>
+      <h3 id="quiz-question">Що вас турбує?</h3>
+      <p id="quiz-sub">Оберіть тему — покажемо конкретний товар із каталогу «Здоров'я».</p>
+      <div class="quiz-options" id="quiz-options">
+        <button type="button" class="quiz-opt" data-goal="son">Сон</button>
+        <button type="button" class="quiz-opt" data-goal="energiia">Енергія</button>
+        <button type="button" class="quiz-opt" data-goal="imunitet">Імунітет</button>
+        <button type="button" class="quiz-opt" data-goal="sertse">Серце і судини</button>
+        <button type="button" class="quiz-opt" data-goal="suhloby">Суглоби і кістки</button>
+        <button type="button" class="quiz-opt" data-goal="detoks">Детокс</button>
+        <button type="button" class="quiz-opt" data-goal="vaha">Контроль ваги</button>
+        <button type="button" class="quiz-opt" data-goal="pamiat">Пам'ять і увага</button>
+      </div>
+      <div class="quiz-result" id="quiz-result" hidden>
+        <div class="quiz-result-label">У категорії «<span id="quiz-goal-name"></span>» на сайті є:</div>
+        <div class="quiz-product">
+          <h4 id="quiz-product-name"></h4>
+          <div class="price" id="quiz-product-price"></div>
+        </div>
+        <div class="quiz-actions">
+          <a class="btn-primary" id="quiz-product-link" href="#" target="_blank" rel="noopener">Переглянути товар</a>
+          <button type="button" class="quiz-again" id="quiz-again">← Обрати іншу тему</button>
+        </div>
+      </div>
     </div>
     <div>
       <div class="section-head" style="margin-bottom:22px;">
@@ -769,6 +813,43 @@
     words.forEach(w=>{ html += `<span>${w}</span><span class="dot">•</span>`; });
   }
   marq.innerHTML = html;
+
+  // Реальні товари з відповідних категорій каталогу moe-zdorovie.com.ua (перевірено вручну)
+  const QUIZ_DATA = {
+    son:      { label: "Антистрес і сон",         product: "MELANIN +",        price: "912 грн", url: "https://moe-zdorovie.com.ua/melanin-plus/p-64613.html" },
+    energiia: { label: "Енергія",                  product: "Динаміка",         price: "233 грн", url: "https://moe-zdorovie.com.ua/dinamika/p-61654.html" },
+    imunitet: { label: "Імунітет",                 product: "Імунна формула",   price: "612 грн", url: "https://moe-zdorovie.com.ua/imunna-formula/p-61655.html" },
+    sertse:   { label: "Серце і судини",           product: "Ритм",             price: "233 грн", url: "https://moe-zdorovie.com.ua/ritm/p-61666.html" },
+    suhloby:  { label: "Суглоби і кістки",         product: "Комфорт",          price: "297 грн", url: "https://moe-zdorovie.com.ua/komfort/p-61659.html" },
+    detoks:   { label: "Детокс",                   product: "MACROSORB",        price: "280 грн", url: "https://moe-zdorovie.com.ua/macrosorb/p-64609.html" },
+    vaha:     { label: "Контроль та зниження ваги",product: "ACTIVE SLIM",      price: "749 грн", url: "https://moe-zdorovie.com.ua/active-slim/p-64595.html" },
+    pamiat:   { label: "Пам'ять і увага",          product: "Інтелект",         price: "355 грн", url: "https://moe-zdorovie.com.ua/intelekt/p-61656.html" }
+  };
+
+  const quizOptions = document.getElementById('quiz-options');
+  const quizResult = document.getElementById('quiz-result');
+  const quizSub = document.getElementById('quiz-sub');
+  const quizAgain = document.getElementById('quiz-again');
+
+  quizOptions.querySelectorAll('.quiz-opt').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      const data = QUIZ_DATA[btn.getAttribute('data-goal')];
+      if(!data) return;
+      document.getElementById('quiz-goal-name').textContent = data.label;
+      document.getElementById('quiz-product-name').textContent = data.product;
+      document.getElementById('quiz-product-price').textContent = data.price;
+      document.getElementById('quiz-product-link').href = data.url;
+      quizOptions.hidden = true;
+      quizSub.hidden = true;
+      quizResult.hidden = false;
+    });
+  });
+
+  quizAgain.addEventListener('click', function(){
+    quizResult.hidden = true;
+    quizOptions.hidden = false;
+    quizSub.hidden = false;
+  });
 </script>
 
 </body>
