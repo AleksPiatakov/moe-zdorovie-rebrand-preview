@@ -289,21 +289,6 @@
     font-weight:700; font-size:0.92rem; border-bottom:2px solid var(--cream); padding-bottom:3px;
   }
 
-  /* palette + type strip */
-  .system{
-    display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;
-  }
-  .palette-row{display:flex; gap:14px; margin-top:28px;}
-  .swatch{
-    flex:1; height:96px; border-radius:16px; position:relative; overflow:hidden;
-    display:flex; align-items:flex-end; padding:10px;
-    font-size:0.72rem; font-weight:700; letter-spacing:0.04em;
-  }
-  .swatch span{background:rgba(255,255,255,0.85); padding:2px 7px; border-radius:6px; color:var(--ink);}
-  .type-sample{margin-top:10px;}
-  .type-sample .big{font-family:'Fraunces',serif; font-size:3.4rem; font-weight:500; line-height:1;}
-  .type-sample .med{font-family:'Manrope',sans-serif; font-weight:700; font-size:1rem; margin-top:14px; letter-spacing:0.02em;}
-  .type-sample .small{font-family:'Manrope',sans-serif; font-size:0.9rem; color:rgba(36,31,24,0.65); margin-top:8px; max-width:420px; line-height:1.6;}
 
   /* testimonial / trust */
   .trust{
@@ -349,7 +334,7 @@
     .pillars{grid-template-columns:1fr; }
     .pillar:nth-child(2), .pillar:nth-child(5){transform:none;}
     .product-grid{grid-template-columns:repeat(2,1fr);}
-    .system, .trust{grid-template-columns:1fr;}
+    .trust{grid-template-columns:1fr;}
     .footer-cols{grid-template-columns:repeat(2,1fr);}
     section{padding:70px 24px;}
     .showcase{margin:0 20px; padding:60px 28px;}
@@ -372,7 +357,6 @@
     <nav class="nav-links">
       <a href="#pillars">Бренди</a>
       <a href="#showcase">Каталог</a>
-      <a href="#system">Стиль</a>
       <a href="#trust">Довіра</a>
     </nav>
     <a class="nav-cta" href="https://moe-zdorovie.com.ua/login.php" target="_blank" rel="noopener">Кабінет</a>
@@ -530,41 +514,6 @@
     </div>
     <div class="showcase-more">
       <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">Увесь каталог на moe-zdorovie.com.ua →</a>
-    </div>
-  </div>
-</section>
-
-<section id="system">
-  <div class="section-head">
-    <h2>Дизайн‑система</h2>
-    <p>Теплий, редакційний, живий — на противагу типовому холодному «медичному» стилю категорії.</p>
-  </div>
-  <div class="system">
-    <div>
-      <div class="type-sample">
-        <div class="big">Aa Здоров'я</div>
-        <div class="med">Fraunces — заголовки</div>
-        <div class="small">Витончена контрастна засічка з теплим, майже рукописним курсивом для акцентів. Створює відчуття турботи й експертизи водночас.</div>
-      </div>
-      <div class="type-sample" style="margin-top:40px;">
-        <div class="big" style="font-family:'Manrope',sans-serif; font-size:2.2rem; font-weight:800;">Aa Здоров'я</div>
-        <div class="med">Manrope — основний текст</div>
-        <div class="small">Гуманістичний гротеск для карток товарів, навігації та UI — читабельний на будь-якому екрані.</div>
-      </div>
-    </div>
-    <div>
-      <div class="med" style="font-weight:700; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; opacity:0.6;">Палітра</div>
-      <div class="palette-row">
-        <div class="swatch" style="background:var(--forest);"><span>Forest</span></div>
-        <div class="swatch" style="background:var(--terracotta);"><span>Terracotta</span></div>
-        <div class="swatch" style="background:var(--sage);"><span>Sage</span></div>
-      </div>
-      <div class="palette-row">
-        <div class="swatch" style="background:var(--gold);"><span>Gold</span></div>
-        <div class="swatch" style="background:var(--cream-deep); color:var(--ink);"><span>Cream</span></div>
-        <div class="swatch" style="background:var(--ink);"><span>Ink</span></div>
-      </div>
-      <p class="small" style="margin-top:24px; max-width:460px; color:rgba(36,31,24,0.65); line-height:1.6;">Домінантний лісовий зелений і кремовий — з терракотовим акцентом замість очікуваного бірюзово‑білого «аптечного» дуету. Золото — тільки для преміум‑ліній (програми, набори).</p>
     </div>
   </div>
 </section>
