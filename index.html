@@ -290,8 +290,9 @@
     animation:scroll 28s linear infinite;
     font-family:'Fraunces',serif; font-size:1.15rem; font-style:italic;
   }
-  .marquee span{opacity:0.85;}
-  .marquee span.dot{color:var(--terracotta); font-style:normal;}
+  .marquee a{opacity:0.85; border-bottom:1px solid transparent; transition:opacity 0.2s ease, border-color 0.2s ease;}
+  .marquee a:hover{opacity:1; border-color:currentColor;}
+  .marquee span.dot{color:var(--terracotta); font-style:normal; opacity:0.85;}
   @keyframes scroll{
     from{transform:translateX(0);}
     to{transform:translateX(-50%);}
@@ -957,11 +958,21 @@
 </footer>
 
 <script>
-  const words = ["Натуральна косметика","Фітокомплекси","Вітаміни","Екозасоби для дому","Суперфуди","Здорові рішення"];
+  // Реальні топ-категорії каталогу moe-zdorovie.com.ua
+  const words = [
+    { text: "Натуральна косметика", url: "https://moe-zdorovie.com.ua/krasa/c-429.html" },
+    { text: "Фітокомплекси",         url: "https://moe-zdorovie.com.ua/zdorovia/c-425.html" },
+    { text: "Вітаміни",              url: "https://moe-zdorovie.com.ua/nutriienty/c-427.html" },
+    { text: "Екозасоби для дому",    url: "https://moe-zdorovie.com.ua/dlia-domu/c-431.html" },
+    { text: "Суперфуди",             url: "https://moe-zdorovie.com.ua/superfudy/c-428.html" },
+    { text: "Здорові рішення",       url: "https://moe-zdorovie.com.ua/zdorovia/c-425.html" }
+  ];
   const marq = document.getElementById('marq');
   let html = '';
   for(let i=0;i<2;i++){
-    words.forEach(w=>{ html += `<span>${w}</span><span class="dot">•</span>`; });
+    words.forEach(function(w){
+      html += `<a href="${w.url}" target="_blank" rel="noopener">${w.text}</a><span class="dot">•</span>`;
+    });
   }
   marq.innerHTML = html;
 
