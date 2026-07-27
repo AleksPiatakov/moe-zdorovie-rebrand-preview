@@ -248,19 +248,6 @@
   .pillar h3{font-size:1.5rem; margin-bottom:12px;}
   .pillar p{font-size:0.92rem; line-height:1.6; color:rgba(36,31,24,0.68); margin:0;}
 
-  /* Product showcase - diagonal */
-  .showcase{
-    background:var(--forest); color:var(--cream);
-    border-radius:36px; padding:90px 60px; margin:0 40px;
-    max-width:1280px; margin-left:auto; margin-right:auto;
-    position:relative; overflow:hidden;
-  }
-  .showcase::before{
-    content:''; position:absolute; top:-30%; right:-10%; width:60%; height:160%;
-    background:radial-gradient(circle, rgba(156,175,136,0.25), transparent 65%);
-  }
-  .showcase .section-head h2, .showcase .section-head p{color:var(--cream);}
-  .showcase .section-head p{opacity:0.7;}
   .product-grid{
     display:grid; grid-template-columns:repeat(4,1fr); gap:22px; position:relative;
   }
@@ -277,15 +264,8 @@
     background:linear-gradient(140deg, var(--sage-soft), var(--sage));
     display:flex; align-items:center; justify-content:center;
   }
-  .product-swatch.c2{background:linear-gradient(140deg,#e8c9a0,var(--terracotta));}
-  .product-swatch.c3{background:linear-gradient(140deg,#e3d9b8,var(--gold));}
-  .product-swatch.c4{background:linear-gradient(140deg,#cfd9c4,var(--forest-deep));}
   .product-card h4{font-family:'Fraunces',serif; font-weight:500; font-size:1.05rem; margin-bottom:6px; line-height:1.3;}
   .product-card .price{font-size:0.85rem; opacity:0.65;}
-  .showcase-more{text-align:center; margin-top:40px; position:relative;}
-  .showcase-more a{
-    font-weight:700; font-size:0.92rem; border-bottom:2px solid var(--cream); padding-bottom:3px;
-  }
 
 
   /* testimonial / trust */
@@ -421,7 +401,6 @@
     .trust{grid-template-columns:1fr;}
     .footer-cols{grid-template-columns:repeat(2,1fr);}
     section{padding:70px 24px;}
-    .showcase{margin:0 20px; padding:60px 28px;}
     .goals-grid{grid-template-columns:repeat(2,1fr);}
     .trust-icons{grid-template-columns:repeat(2,1fr); gap:30px;}
     .split-row{grid-template-columns:1fr;}
@@ -448,7 +427,7 @@
     </a>
     <nav class="nav-links">
       <a href="#pillars">Бренди</a>
-      <a href="#showcase">Каталог</a>
+      <a href="#bestsellers">Каталог</a>
       <a href="#trust">Довіра</a>
     </nav>
     <a class="nav-cta" href="https://moe-zdorovie.com.ua/login.php" target="_blank" rel="noopener">Кабінет</a>
@@ -462,7 +441,7 @@
     <p class="lead">Натуральна косметика, фітокомплекси, вітаміни та екозасоби для дому — зібрані в одну послідовну систему турботи. Без хімії. Без порожніх обіцянок.</p>
     <div class="hero-actions">
       <a class="btn-primary" href="#pillars">Дивитись бренди</a>
-      <a class="btn-ghost" href="#showcase">Каталог товарів →</a>
+      <a class="btn-ghost" href="#bestsellers">Каталог товарів →</a>
     </div>
   </div>
   <div class="hero-visual-wrap">
@@ -619,60 +598,6 @@
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M12 3a5 5 0 0 0-5 5c0 2 1 3 1 5a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3c0-2 1-3 1-5a5 5 0 0 0-5-5Z"/><path d="M10 19h4M11 22h2"/></svg></div>
       <span>Пам'ять та концентрація</span>
     </a>
-  </div>
-</section>
-
-<section id="showcase">
-  <div class="showcase">
-    <div class="section-head">
-      <h2>Новинки тижня</h2>
-      <p>Реальні товари й ціни з поточного каталогу — натисніть, щоб перейти на сторінку товару.</p>
-    </div>
-    <div class="product-grid">
-      <a class="product-card" href="https://moe-zdorovie.com.ua/ekokoncentrat-kisnevmisnii-dla-vidbiluvanna/p-64671.html" target="_blank" rel="noopener">
-        <div class="product-swatch c1"></div>
-        <h4>ЕКОконцентрат кисневмісний для відбілювання</h4>
-        <div class="price">297 грн</div>
-      </a>
-      <a class="product-card" href="https://moe-zdorovie.com.ua/zubna-pasta-mors-kii-kal-cii-d3/p-64667.html" target="_blank" rel="noopener">
-        <div class="product-swatch c2"></div>
-        <h4>Зубна паста «Морський кальцій & D3»</h4>
-        <div class="price">255 грн</div>
-      </a>
-      <a class="product-card" href="https://moe-zdorovie.com.ua/fitokompleks-garmoniya-shchytopodibna-zaloza/p-64659.html" target="_blank" rel="noopener">
-        <div class="product-swatch c3"></div>
-        <h4>Фітокомплекс ГАРМОНІЯ</h4>
-        <div class="price">352 грн</div>
-      </a>
-      <a class="product-card" href="https://moe-zdorovie.com.ua/programa-ritm-serca-/p-64662.html" target="_blank" rel="noopener">
-        <div class="product-swatch c4"></div>
-        <h4>Програма «Ритм серця»</h4>
-        <div class="price">3213 грн</div>
-      </a>
-      <a class="product-card" href="https://moe-zdorovie.com.ua/ekomilo-ridke-olivkovo-lanolinove-z-dozatorom/p-64669.html" target="_blank" rel="noopener">
-        <div class="product-swatch c1"></div>
-        <h4>Екомило рідке оливково‑ланолінове з дозатором</h4>
-        <div class="price">323 грн</div>
-      </a>
-      <a class="product-card" href="https://moe-zdorovie.com.ua/losion-pislya-golinnya-antistress-white-mandarin/p-64656.html" target="_blank" rel="noopener">
-        <div class="product-swatch c2"></div>
-        <h4>Лосьйон після гоління Antistress</h4>
-        <div class="price">549 грн</div>
-      </a>
-      <a class="product-card" href="https://moe-zdorovie.com.ua/proroseni-zerna-bobovih/p-64661.html" target="_blank" rel="noopener">
-        <div class="product-swatch c3"></div>
-        <h4>Пророщені зерна бобових</h4>
-        <div class="price">363 грн</div>
-      </a>
-      <a class="product-card" href="https://moe-zdorovie.com.ua/healthy-detox-box/p-64663.html" target="_blank" rel="noopener">
-        <div class="product-swatch c4"></div>
-        <h4>HEALTHY DETOX BOX</h4>
-        <div class="price">2424 грн</div>
-      </a>
-    </div>
-    <div class="showcase-more">
-      <a href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">Увесь каталог на moe-zdorovie.com.ua →</a>
-    </div>
   </div>
 </section>
 
