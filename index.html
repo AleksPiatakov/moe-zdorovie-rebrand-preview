@@ -307,6 +307,98 @@
   .stat-card .n{font-family:'Fraunces',serif; font-size:2.2rem; color:var(--terracotta-deep);}
   .stat-card .l{font-size:0.85rem; color:rgba(36,31,24,0.65); max-width:200px;}
 
+  /* ===== goals grid ===== */
+  .goals-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .goal-tile{
+    background:var(--paper); border:1px solid var(--line); border-radius:20px;
+    padding:30px 14px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:14px;
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .goal-tile:hover{transform:translateY(-5px); box-shadow:var(--shadow);}
+  .goal-tile .ic{
+    width:46px; height:46px; border-radius:50%; background:var(--cream-deep);
+    display:flex; align-items:center; justify-content:center; flex:none;
+  }
+  .goal-tile .ic svg{width:22px; height:22px;}
+  .goal-tile span{font-size:0.84rem; font-weight:700;}
+
+  /* ===== trust icon row ===== */
+  .trust-icons{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .trust-icon-card{text-align:center;}
+  .trust-icon-card .ic{
+    width:58px; height:58px; border-radius:50%; margin:0 auto 16px; background:var(--cream-deep);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .trust-icon-card .ic svg{width:26px; height:26px;}
+  .trust-icon-card .n{font-family:'Fraunces',serif; font-size:1.9rem; color:var(--terracotta-deep);}
+  .trust-icon-card .l{font-size:0.85rem; color:rgba(36,31,24,0.65); margin-top:4px;}
+
+  /* ===== picker + light product rows ===== */
+  .split-row{display:grid; grid-template-columns:0.85fr 1.15fr; gap:28px; align-items:stretch;}
+  .picker-card{
+    background:var(--forest); color:var(--cream); border-radius:28px; padding:44px 38px;
+    display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden;
+  }
+  .picker-card::before{
+    content:''; position:absolute; bottom:-25%; right:-20%; width:75%; height:75%;
+    background:radial-gradient(circle, rgba(193,102,61,0.28), transparent 65%);
+  }
+  .picker-card .eyebrow{color:var(--sage-soft); position:relative;}
+  .picker-card h3{font-size:1.7rem; margin-top:12px; position:relative;}
+  .picker-card p{font-size:0.95rem; opacity:0.78; margin-top:14px; line-height:1.6; max-width:320px; position:relative;}
+  .picker-card .btn-primary{margin-top:26px; position:relative; align-self:flex-start;}
+
+  .product-grid.light{grid-template-columns:repeat(2,1fr);}
+  .product-card.light{
+    background:var(--paper); border:1px solid var(--line); color:var(--ink);
+  }
+  .product-card.light:hover{box-shadow:var(--shadow); transform:translateY(-6px); background:var(--paper);}
+  .product-card.light .price{opacity:0.55;}
+  .product-swatch.light1{background:linear-gradient(140deg, var(--sage-soft), var(--sage));}
+  .product-swatch.light2{background:linear-gradient(140deg,#e8c9a0,var(--terracotta));}
+  .product-swatch.light3{background:linear-gradient(140deg,#e3d9b8,var(--gold));}
+  .product-swatch.light4{background:linear-gradient(140deg,#cfd9c4,var(--forest-deep));}
+
+  .bestsellers .product-grid{grid-template-columns:repeat(4,1fr);}
+
+  /* ===== blog ===== */
+  .blog-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .blog-card{display:block;}
+  .blog-swatch{
+    height:180px; border-radius:20px; margin-bottom:16px;
+    background:linear-gradient(140deg, var(--sage-soft), var(--forest));
+  }
+  .blog-swatch.b2{background:linear-gradient(140deg,#e8c9a0,var(--terracotta));}
+  .blog-swatch.b3{background:linear-gradient(140deg,#e3d9b8,var(--gold));}
+  .blog-card .eyebrow{margin-bottom:10px;}
+  .blog-card h4{font-family:'Fraunces',serif; font-weight:500; font-size:1.2rem; line-height:1.35; margin-bottom:10px;}
+  .blog-card .read{font-weight:700; font-size:0.86rem; border-bottom:2px solid var(--ink); padding-bottom:2px;}
+
+  /* ===== newsletter ===== */
+  .newsletter{
+    background:var(--forest); color:var(--cream); border-radius:32px; padding:56px 50px;
+    display:flex; justify-content:space-between; align-items:center; gap:30px; flex-wrap:wrap;
+    position:relative; overflow:hidden;
+  }
+  .newsletter::before{
+    content:''; position:absolute; top:-45%; left:-10%; width:55%; height:150%;
+    background:radial-gradient(circle, rgba(156,175,136,0.3), transparent 65%);
+  }
+  .newsletter h3{font-size:1.6rem; max-width:360px; position:relative;}
+  .newsletter p{opacity:0.75; margin-top:10px; font-size:0.92rem; position:relative;}
+  .newsletter-form{display:flex; gap:10px; position:relative; flex:none;}
+  .newsletter-form input{
+    border:none; border-radius:100px; padding:14px 20px; font-family:'Manrope',sans-serif;
+    font-size:0.9rem; width:240px; background:rgba(255,253,248,0.12); color:var(--cream);
+  }
+  .newsletter-form input::placeholder{color:rgba(246,240,228,0.55);}
+  .newsletter-form button{
+    border:none; border-radius:100px; padding:14px 26px; font-weight:700; font-size:0.9rem;
+    background:var(--terracotta); color:var(--paper); cursor:pointer;
+    transition:transform 0.25s ease;
+  }
+  .newsletter-form button:hover{transform:translateY(-2px);}
+
   footer{
     background:var(--ink); color:var(--cream);
     padding:70px 40px 30px;
@@ -332,6 +424,15 @@
     .footer-cols{grid-template-columns:repeat(2,1fr);}
     section{padding:70px 24px;}
     .showcase{margin:0 20px; padding:60px 28px;}
+    .goals-grid{grid-template-columns:repeat(2,1fr);}
+    .trust-icons{grid-template-columns:repeat(2,1fr); gap:30px;}
+    .split-row{grid-template-columns:1fr;}
+    .product-grid.light{grid-template-columns:repeat(2,1fr);}
+    .bestsellers .product-grid{grid-template-columns:repeat(2,1fr);}
+    .blog-grid{grid-template-columns:1fr;}
+    .newsletter{flex-direction:column; align-items:flex-start; padding:40px 28px;}
+    .newsletter-form{width:100%;}
+    .newsletter-form input{width:100%; flex:1;}
   }
 </style>
 </head>
@@ -409,7 +510,7 @@
       <div class="lbl">українських брендів під одним дахом</div>
     </div>
     <div class="badge-float2">
-      <div class="num">185+</div>
+      <div class="num">250+</div>
       <div class="lbl">перевірених засобів у каталозі</div>
     </div>
   </div>
@@ -455,6 +556,72 @@
       <h3>Добра Їжа</h3>
       <p>Пророщені зерна та функціональне харчування для щоденної підтримки організму зсередини.</p>
     </div>
+  </div>
+</section>
+
+<section id="why-trust">
+  <div class="trust-icons">
+    <div class="trust-icon-card">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#a04f2c" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div class="n">21 рік</div>
+      <div class="l">на ринку</div>
+    </div>
+    <div class="trust-icon-card">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#a04f2c" stroke-width="1.6"><path d="M4 8l8-4 8 4-8 4-8-4Z"/><path d="M4 8v8l8 4 8-4V8"/><path d="M12 12v8"/></svg></div>
+      <div class="n">250+</div>
+      <div class="l">якісних продуктів</div>
+    </div>
+    <div class="trust-icon-card">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#a04f2c" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2c2.6.4 4.5 2.6 4.5 5.3"/></svg></div>
+      <div class="n">50 000+</div>
+      <div class="l">задоволених клієнтів</div>
+    </div>
+    <div class="trust-icon-card">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#a04f2c" stroke-width="1.6"><path d="M12 21c-4-2.5-7-6-7-10a7 7 0 0 1 14 0c0 4-3 7.5-7 10Z"/><path d="M12 8v6M9 11h6"/></svg></div>
+      <div class="n">Експертна</div>
+      <div class="l">підтримка</div>
+    </div>
+  </div>
+</section>
+
+<section id="goals">
+  <div class="section-head">
+    <h2>Категорії за цілями</h2>
+    <p>Шукайте не за брендом, а за тим, що саме хочете покращити.</p>
+  </div>
+  <div class="goals-grid">
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/></svg></div>
+      <span>Імунітет</span>
+    </a>
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></div>
+      <span>Енергія</span>
+    </a>
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg></div>
+      <span>Сон</span>
+    </a>
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M12 20s-7-4.4-9.3-9C1.4 7.8 3 4.5 6.4 4a4.7 4.7 0 0 1 5.6 2.8A4.7 4.7 0 0 1 17.6 4c3.4.5 5 3.8 3.7 7-2.3 4.6-9.3 9-9.3 9Z"/></svg></div>
+      <span>Здоров'я серця</span>
+    </a>
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><circle cx="7" cy="7" r="3"/><circle cx="17" cy="17" r="3"/><path d="M9.2 9.2l5.6 5.6"/></svg></div>
+      <span>Суглоби</span>
+    </a>
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></div>
+      <span>Детокс</span>
+    </a>
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M4 19h16M6 19V9a3 3 0 0 1 6 0M18 19V9a3 3 0 0 0-6 0"/></svg></div>
+      <span>Схуднення</span>
+    </a>
+    <a class="goal-tile" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M12 3a5 5 0 0 0-5 5c0 2 1 3 1 5a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3c0-2 1-3 1-5a5 5 0 0 0-5-5Z"/><path d="M10 19h4M11 22h2"/></svg></div>
+      <span>Пам'ять та концентрація</span>
+    </a>
   </div>
 </section>
 
@@ -512,6 +679,73 @@
   </div>
 </section>
 
+<section id="picker">
+  <div class="split-row">
+    <div class="picker-card">
+      <div class="eyebrow">Персональний підбір</div>
+      <h3>Не знаєте, з чого почати?</h3>
+      <p>Напишіть у консультацію на сайті — підкажемо засоби під ваш запит: сон, енергія, суглоби чи щитоподібна залоза.</p>
+      <a class="btn-primary" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">Отримати консультацію</a>
+    </div>
+    <div>
+      <div class="section-head" style="margin-bottom:22px;">
+        <h2 style="font-size:1.6rem;">Популярні програми</h2>
+      </div>
+      <div class="product-grid light">
+        <a class="product-card light" href="https://moe-zdorovie.com.ua/meta-box/p-64666.html" target="_blank" rel="noopener">
+          <div class="product-swatch light1"></div>
+          <h4>META BOX</h4>
+          <div class="price">3292 грн</div>
+        </a>
+        <a class="product-card light" href="https://moe-zdorovie.com.ua/slim-box/p-64665.html" target="_blank" rel="noopener">
+          <div class="product-swatch light2"></div>
+          <h4>SLIM BOX</h4>
+          <div class="price">3352 грн</div>
+        </a>
+        <a class="product-card light" href="https://moe-zdorovie.com.ua/express-detox-box/p-64664.html" target="_blank" rel="noopener">
+          <div class="product-swatch light3"></div>
+          <h4>EXPRESS DETOX BOX</h4>
+          <div class="price">1481 грн</div>
+        </a>
+        <a class="product-card light" href="https://moe-zdorovie.com.ua/programa-ritm-serca-/p-64662.html" target="_blank" rel="noopener">
+          <div class="product-swatch light4"></div>
+          <h4>Програма «Ритм серця»</h4>
+          <div class="price">3213 грн</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bestsellers" class="bestsellers">
+  <div class="section-head">
+    <h2>Хіти продажів</h2>
+    <p>Те, що клієнти замовляють найчастіше.</p>
+  </div>
+  <div class="product-grid">
+    <a class="product-card light" href="https://moe-zdorovie.com.ua/ekokoncentrat-dla-pranna-vovni-sovku-ta-delikatnih-tkanin/p-64670.html" target="_blank" rel="noopener">
+      <div class="product-swatch light1"></div>
+      <h4>ЕКОконцентрат для прання вовни, шовку та делікатних тканин</h4>
+      <div class="price">383 грн</div>
+    </a>
+    <a class="product-card light" href="https://moe-zdorovie.com.ua/ekozasib-dla-ocisenna-vannoi-kimnati-z-rozpiluvacem/p-64668.html" target="_blank" rel="noopener">
+      <div class="product-swatch light2"></div>
+      <h4>Екозасіб для очищення ванної кімнати з розпилювачем</h4>
+      <div class="price">230 грн</div>
+    </a>
+    <a class="product-card light" href="https://moe-zdorovie.com.ua/fitokompleks-frilajf-antyoksydantnyj/p-64657.html" target="_blank" rel="noopener">
+      <div class="product-swatch light3"></div>
+      <h4>Фітокомплекс ФРІЛАЙФ</h4>
+      <div class="price">289 грн</div>
+    </a>
+    <a class="product-card light" href="https://moe-zdorovie.com.ua/kremova-pina-dlya-golinnya-antistress-white-mandarin/p-64655.html" target="_blank" rel="noopener">
+      <div class="product-swatch light4"></div>
+      <h4>Кремова піна для гоління Antistress</h4>
+      <div class="price">378 грн</div>
+    </a>
+  </div>
+</section>
+
 <section id="trust">
   <div class="trust">
     <div>
@@ -520,9 +754,49 @@
     </div>
     <div class="stat-cards">
       <div class="stat-card"><div class="n">6</div><div class="l">брендів під одним дахом</div></div>
-      <div class="stat-card"><div class="n">185+</div><div class="l">товарів у каталозі</div></div>
+      <div class="stat-card"><div class="n">250+</div><div class="l">товарів у каталозі</div></div>
       <div class="stat-card"><div class="n">✓</div><div class="l">доставка по всій Україні</div></div>
     </div>
+  </div>
+</section>
+
+<section id="blog">
+  <div class="section-head">
+    <h2>Блог</h2>
+    <p>Приклад формату — короткі практичні матеріали про здоров'я, а не рекламні тексти.</p>
+  </div>
+  <div class="blog-grid">
+    <a class="blog-card" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+      <div class="blog-swatch"></div>
+      <div class="eyebrow">Сон</div>
+      <h4>Як покращити сон природним шляхом</h4>
+      <span class="read">Читати →</span>
+    </a>
+    <a class="blog-card" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+      <div class="blog-swatch b2"></div>
+      <div class="eyebrow">Імунітет</div>
+      <h4>Підтримка імунітету в холодний сезон</h4>
+      <span class="read">Читати →</span>
+    </a>
+    <a class="blog-card" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
+      <div class="blog-swatch b3"></div>
+      <div class="eyebrow">Харчування</div>
+      <h4>Омега‑3: користь для організму</h4>
+      <span class="read">Читати →</span>
+    </a>
+  </div>
+</section>
+
+<section id="newsletter-section">
+  <div class="newsletter">
+    <div>
+      <h3>Підпишіться та отримуйте корисне щотижня</h3>
+      <p>Поради, новини та знижки для вашого здоров'я.</p>
+    </div>
+    <form class="newsletter-form" onsubmit="return false;">
+      <input type="email" placeholder="Ваш email" required>
+      <button type="submit">Підписатися</button>
+    </form>
   </div>
 </section>
 
