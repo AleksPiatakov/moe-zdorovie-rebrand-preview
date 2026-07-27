@@ -374,21 +374,6 @@
   .stat-card .n{font-family:'Fraunces',serif; font-size:2.2rem; color:var(--terracotta-deep);}
   .stat-card .l{font-size:0.85rem; color:rgba(36,31,24,0.65); max-width:200px;}
 
-  /* ===== goals grid ===== */
-  .goals-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
-  .goal-tile{
-    background:var(--paper); border:1px solid var(--line); border-radius:20px;
-    padding:30px 14px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:14px;
-    transition:transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .goal-tile:hover{transform:translateY(-5px); box-shadow:var(--shadow);}
-  .goal-tile .ic{
-    width:46px; height:46px; border-radius:50%; background:var(--cream-deep);
-    display:flex; align-items:center; justify-content:center; flex:none;
-  }
-  .goal-tile .ic svg{width:22px; height:22px;}
-  .goal-tile span{font-size:0.84rem; font-weight:700;}
-
   /* ===== trust icon row ===== */
   .trust-icons{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
   .trust-icon-card{text-align:center;}
@@ -538,7 +523,6 @@
     .trust{grid-template-columns:1fr;}
     .footer-cols{grid-template-columns:repeat(2,1fr);}
     section{padding:70px 24px;}
-    .goals-grid{grid-template-columns:repeat(2,1fr);}
     .trust-icons{grid-template-columns:repeat(2,1fr); gap:30px;}
     .split-row{grid-template-columns:1fr;}
     .product-grid.light{grid-template-columns:repeat(2,1fr);}
@@ -547,6 +531,37 @@
     .newsletter{flex-direction:column; align-items:flex-start; padding:40px 28px;}
     .newsletter-form{width:100%;}
     .newsletter-form input{width:100%; flex:1;}
+  }
+
+  @media (max-width:560px){
+    .nav-wrap{padding:12px 16px;}
+    .logo{font-size:1.2rem; gap:8px;}
+    .logo img{height:28px;}
+    .nav-actions{gap:8px;}
+    .cart-toggle{width:36px; height:36px;}
+    .lang-current{padding:8px 10px; font-size:0.78rem;}
+    .lang-menu{right:-10px;}
+    .preview-bar{font-size:0.7rem; padding:8px 12px;}
+    .hero{padding:50px 20px 40px;}
+    .hero-actions{flex-wrap:wrap;}
+    section{padding:52px 18px;}
+    .pillar{padding:28px 22px;}
+    .picker-card{padding:32px 24px;}
+    .quiz-options{gap:8px;}
+    .quiz-opt{padding:9px 14px; font-size:0.8rem;}
+    .quiz-text-form{flex-direction:column; align-items:stretch;}
+    .quiz-text-form button{width:100%;}
+    .product-grid, .product-grid.light, .bestsellers .product-grid{grid-template-columns:1fr;}
+    .trust-icons{grid-template-columns:repeat(2,1fr); gap:20px;}
+    .footer-cols{grid-template-columns:1fr; gap:26px;}
+    footer{padding:56px 20px 24px;}
+    .footer-bottom{flex-direction:column; gap:6px; align-items:flex-start;}
+    .cart-drawer-panel{padding:22px 18px; width:100%; max-width:100%;}
+    .blog-swatch{height:150px;}
+  }
+
+  @media (max-width:400px){
+    .logo-text{display:none;}
   }
 </style>
 </head>
@@ -561,7 +576,7 @@
   <div class="nav-wrap">
     <a class="logo" href="https://moe-zdorovie.com.ua/" target="_blank" rel="noopener">
       <img src="assets/logo-mark.png" alt="" height="34">
-      Моє Здоров'я
+      <span class="logo-text">Моє Здоров'я</span>
     </a>
     <nav class="nav-links">
       <a href="#pillars">Бренди</a>
@@ -730,47 +745,6 @@
       <div class="n">Експертна</div>
       <div class="l">підтримка</div>
     </div>
-  </div>
-</section>
-
-<section id="goals">
-  <div class="section-head">
-    <h2>Категорії за цілями</h2>
-    <p>Шукайте не за брендом, а за тим, що саме хочете покращити.</p>
-  </div>
-  <div class="goals-grid">
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-imunitet/c-425-440.html" target="_blank" rel="noopener">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/></svg></div>
-      <span>Імунітет</span>
-    </a>
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-energiia/c-425-437.html" target="_blank" rel="noopener">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></div>
-      <span>Енергія</span>
-    </a>
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-antystres-i-son/c-425-434.html" target="_blank" rel="noopener">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg></div>
-      <span>Антистрес і сон</span>
-    </a>
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-sertse-i-sudyny/c-425-446.html" target="_blank" rel="noopener">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M12 20s-7-4.4-9.3-9C1.4 7.8 3 4.5 6.4 4a4.7 4.7 0 0 1 5.6 2.8A4.7 4.7 0 0 1 17.6 4c3.4.5 5 3.8 3.7 7-2.3 4.6-9.3 9-9.3 9Z"/></svg></div>
-      <span>Серце і судини</span>
-    </a>
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-suhloby-i-kistky/c-425-444.html" target="_blank" rel="noopener">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><circle cx="7" cy="7" r="3"/><circle cx="17" cy="17" r="3"/><path d="M9.2 9.2l5.6 5.6"/></svg></div>
-      <span>Суглоби і кістки</span>
-    </a>
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-detoks/c-425-435.html" target="_blank" rel="noopener">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></div>
-      <span>Детокс</span>
-    </a>
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-kontrol-ta-znyzhennia-vahy/c-425-441.html" target="_blank" rel="noopener">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M4 19h16M6 19V9a3 3 0 0 1 6 0M18 19V9a3 3 0 0 0-6 0"/></svg></div>
-      <span>Контроль та зниження ваги</span>
-    </a>
-    <a class="goal-tile" href="https://moe-zdorovie.com.ua/zdorovia-pamiat-i-uvaha/c-425-443.html" target="_blank" rel="noopener">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#233821" stroke-width="1.6"><path d="M12 3a5 5 0 0 0-5 5c0 2 1 3 1 5a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3c0-2 1-3 1-5a5 5 0 0 0-5-5Z"/><path d="M10 19h4M11 22h2"/></svg></div>
-      <span>Пам'ять і увага</span>
-    </a>
   </div>
 </section>
 
