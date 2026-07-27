@@ -327,21 +327,22 @@
 
 
   /* testimonial / trust */
-  .trust{
-    display:grid; grid-template-columns:1.2fr 1fr; gap:60px; align-items:center;
+  .full-quote{
+    text-align:center; position:relative; padding:10px 20px;
+  }
+  .full-quote::before{
+    content:'“'; display:block; font-family:'Fraunces',serif; font-size:5rem; line-height:1;
+    color:var(--terracotta); opacity:0.55; margin-bottom:-10px;
   }
   .quote{
-    font-family:'Fraunces',serif; font-style:italic; font-size:clamp(1.4rem,2.4vw,2rem);
-    line-height:1.4; color:var(--forest-deep);
+    font-family:'Fraunces',serif; font-style:italic; font-size:clamp(1.7rem,3.6vw,2.8rem);
+    line-height:1.35; color:var(--forest-deep); max-width:960px; margin:0 auto;
+    text-wrap:balance;
   }
-  .quote-attr{margin-top:24px; font-family:'Manrope',sans-serif; font-weight:700; font-size:0.9rem;}
-  .stat-cards{display:flex; flex-direction:column; gap:18px;}
-  .stat-card{
-    background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:24px 28px;
-    display:flex; align-items:center; gap:20px;
+  .quote-attr{
+    margin-top:26px; font-family:'Manrope',sans-serif; font-weight:700; font-size:0.92rem;
+    letter-spacing:0.02em;
   }
-  .stat-card .n{font-family:'Fraunces',serif; font-size:2.2rem; color:var(--terracotta-deep);}
-  .stat-card .l{font-size:0.85rem; color:rgba(36,31,24,0.65); max-width:200px;}
 
   /* ===== trust icon row ===== */
   .trust-icons{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
@@ -489,7 +490,6 @@
     .pillars{grid-template-columns:1fr; }
     .pillar:nth-child(2), .pillar:nth-child(5){transform:none;}
     .product-grid{grid-template-columns:repeat(2,1fr);}
-    .trust{grid-template-columns:1fr;}
     .footer-cols{grid-template-columns:repeat(2,1fr);}
     section{padding:70px 24px;}
     .trust-icons{grid-template-columns:repeat(2,1fr); gap:30px;}
@@ -800,16 +800,9 @@
 </section>
 
 <section id="trust">
-  <div class="trust">
-    <div>
-      <div class="quote">«Кожен товар має опис призначення, складу й способу застосування — свідомий вибір починається з прозорості.»</div>
-      <div class="quote-attr">— принцип каталогу «Моє Здоров'я»</div>
-    </div>
-    <div class="stat-cards">
-      <div class="stat-card"><div class="n">6</div><div class="l">брендів під одним дахом</div></div>
-      <div class="stat-card"><div class="n">250+</div><div class="l">товарів у каталозі</div></div>
-      <div class="stat-card"><div class="n">✓</div><div class="l">доставка по всій Україні</div></div>
-    </div>
+  <div class="full-quote">
+    <div class="quote">Кожен товар має опис призначення, складу й способу застосування — свідомий вибір починається з прозорості.</div>
+    <div class="quote-attr">— принцип каталогу «Моє Здоров'я»</div>
   </div>
 </section>
 
